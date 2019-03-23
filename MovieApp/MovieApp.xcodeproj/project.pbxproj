@@ -18,6 +18,8 @@
 		378DF0742246CB140033EDBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 378DF0732246CB140033EDBE /* Assets.xcassets */; };
 		378DF0852246D1750033EDBE /* HomeListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 378DF0832246D1750033EDBE /* HomeListCell.m */; };
 		378DF0862246D1750033EDBE /* HomeListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 378DF0842246D1750033EDBE /* HomeListCell.xib */; };
+		378DF0952246E0740033EDBE /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 378DF0912246E0740033EDBE /* Reachability.m */; };
+		378DF0962246E0740033EDBE /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 378DF0942246E0740033EDBE /* Tools.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,11 @@
 		378DF0842246D1750033EDBE /* HomeListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeListCell.xib; sourceTree = "<group>"; };
 		378DF0872246D40C0033EDBE /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		378DF0882246D4860033EDBE /* ViewsConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewsConfig.h; sourceTree = "<group>"; };
+		378DF0912246E0740033EDBE /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		378DF0922246E0740033EDBE /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		378DF0932246E0740033EDBE /* Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
+		378DF0942246E0740033EDBE /* Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tools.m; sourceTree = "<group>"; };
+		378DF0972246E0FF0033EDBE /* ConnectionConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConnectionConfig.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +219,9 @@
 		378DF07B2246CCE50033EDBE /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				378DF0902246E0740033EDBE /* Network */,
+				378DF0932246E0740033EDBE /* Tools.h */,
+				378DF0942246E0740033EDBE /* Tools.m */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -223,8 +233,18 @@
 				378DF0362246C6F00033EDBE /* AppDelegate.m */,
 				378DF0872246D40C0033EDBE /* Constants.h */,
 				378DF0882246D4860033EDBE /* ViewsConfig.h */,
+				378DF0972246E0FF0033EDBE /* ConnectionConfig.h */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		378DF0902246E0740033EDBE /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				378DF0912246E0740033EDBE /* Reachability.m */,
+				378DF0922246E0740033EDBE /* Reachability.h */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,10 +378,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				378DF0962246E0740033EDBE /* Tools.m in Sources */,
 				378DF03A2246C6F00033EDBE /* HomeListVC.m in Sources */,
 				378DF0852246D1750033EDBE /* HomeListCell.m in Sources */,
 				378DF0372246C6F00033EDBE /* AppDelegate.m in Sources */,
 				378DF0482246C6F30033EDBE /* main.m in Sources */,
+				378DF0952246E0740033EDBE /* Reachability.m in Sources */,
 				378DF0402246C6F00033EDBE /* MovieApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
