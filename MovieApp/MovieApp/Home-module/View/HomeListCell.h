@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  HomeListCell.h
 //  MovieApp
 //
 //  Created by David Adell on 23/3/19.
@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ViewsConfig.h"
 
-@interface ViewController : UIViewController
+NS_ASSUME_NONNULL_BEGIN
 
+@interface HomeListCell : UITableViewCell
 
 @end
 
+NS_ASSUME_NONNULL_END

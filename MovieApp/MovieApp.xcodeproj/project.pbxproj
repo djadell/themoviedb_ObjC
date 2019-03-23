@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		378DF0372246C6F00033EDBE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 378DF0362246C6F00033EDBE /* AppDelegate.m */; };
-		378DF03A2246C6F00033EDBE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 378DF0392246C6F00033EDBE /* ViewController.m */; };
+		378DF03A2246C6F00033EDBE /* HomeListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 378DF0392246C6F00033EDBE /* HomeListVC.m */; };
 		378DF0402246C6F00033EDBE /* MovieApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 378DF03E2246C6F00033EDBE /* MovieApp.xcdatamodeld */; };
 		378DF0482246C6F30033EDBE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 378DF0472246C6F30033EDBE /* main.m */; };
 		378DF0522246C6F40033EDBE /* MovieAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 378DF0512246C6F40033EDBE /* MovieAppTests.m */; };
@@ -16,6 +16,8 @@
 		378DF06F2246CAB70033EDBE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 378DF06B2246CAB60033EDBE /* LaunchScreen.storyboard */; };
 		378DF0702246CAB70033EDBE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 378DF06D2246CAB60033EDBE /* Main.storyboard */; };
 		378DF0742246CB140033EDBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 378DF0732246CB140033EDBE /* Assets.xcassets */; };
+		378DF0852246D1750033EDBE /* HomeListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 378DF0832246D1750033EDBE /* HomeListCell.m */; };
+		378DF0862246D1750033EDBE /* HomeListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 378DF0842246D1750033EDBE /* HomeListCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +41,8 @@
 		378DF0322246C6F00033EDBE /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		378DF0352246C6F00033EDBE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		378DF0362246C6F00033EDBE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		378DF0382246C6F00033EDBE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		378DF0392246C6F00033EDBE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		378DF0382246C6F00033EDBE /* HomeListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeListVC.h; sourceTree = "<group>"; };
+		378DF0392246C6F00033EDBE /* HomeListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeListVC.m; sourceTree = "<group>"; };
 		378DF03F2246C6F00033EDBE /* MovieApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MovieApp.xcdatamodel; sourceTree = "<group>"; };
 		378DF0462246C6F30033EDBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		378DF0472246C6F30033EDBE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -53,6 +55,11 @@
 		378DF06C2246CAB60033EDBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		378DF06E2246CAB60033EDBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		378DF0732246CB140033EDBE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		378DF0822246D1750033EDBE /* HomeListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeListCell.h; sourceTree = "<group>"; };
+		378DF0832246D1750033EDBE /* HomeListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeListCell.m; sourceTree = "<group>"; };
+		378DF0842246D1750033EDBE /* HomeListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeListCell.xib; sourceTree = "<group>"; };
+		378DF0872246D40C0033EDBE /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		378DF0882246D4860033EDBE /* ViewsConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewsConfig.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +110,7 @@
 		378DF0342246C6F00033EDBE /* MovieApp */ = {
 			isa = PBXGroup;
 			children = (
-				378DF0752246CC690033EDBE /* Home */,
+				378DF0752246CC690033EDBE /* Home-module */,
 				378DF07B2246CCE50033EDBE /* Libraries */,
 				378DF0722246CB140033EDBE /* Media */,
 				378DF0812246CD160033EDBE /* Settings */,
@@ -150,23 +157,23 @@
 			path = Media;
 			sourceTree = "<group>";
 		};
-		378DF0752246CC690033EDBE /* Home */ = {
+		378DF0752246CC690033EDBE /* Home-module */ = {
 			isa = PBXGroup;
 			children = (
-				378DF0762246CC690033EDBE /* Route */,
+				378DF0762246CC690033EDBE /* Router */,
 				378DF0772246CC690033EDBE /* DataManager */,
 				378DF0782246CC690033EDBE /* Presenter */,
 				378DF0792246CC690033EDBE /* View */,
 				378DF07A2246CC690033EDBE /* Interactor */,
 			);
-			path = Home;
+			path = "Home-module";
 			sourceTree = "<group>";
 		};
-		378DF0762246CC690033EDBE /* Route */ = {
+		378DF0762246CC690033EDBE /* Router */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Route;
+			path = Router;
 			sourceTree = "<group>";
 		};
 		378DF0772246CC690033EDBE /* DataManager */ = {
@@ -186,8 +193,11 @@
 		378DF0792246CC690033EDBE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				378DF0382246C6F00033EDBE /* ViewController.h */,
-				378DF0392246C6F00033EDBE /* ViewController.m */,
+				378DF0382246C6F00033EDBE /* HomeListVC.h */,
+				378DF0392246C6F00033EDBE /* HomeListVC.m */,
+				378DF0822246D1750033EDBE /* HomeListCell.h */,
+				378DF0832246D1750033EDBE /* HomeListCell.m */,
+				378DF0842246D1750033EDBE /* HomeListCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -211,6 +221,8 @@
 			children = (
 				378DF0352246C6F00033EDBE /* AppDelegate.h */,
 				378DF0362246C6F00033EDBE /* AppDelegate.m */,
+				378DF0872246D40C0033EDBE /* Constants.h */,
+				378DF0882246D4860033EDBE /* ViewsConfig.h */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -320,6 +332,7 @@
 			files = (
 				378DF0702246CAB70033EDBE /* Main.storyboard in Resources */,
 				378DF0742246CB140033EDBE /* Assets.xcassets in Resources */,
+				378DF0862246D1750033EDBE /* HomeListCell.xib in Resources */,
 				378DF06F2246CAB70033EDBE /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,7 +358,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				378DF03A2246C6F00033EDBE /* ViewController.m in Sources */,
+				378DF03A2246C6F00033EDBE /* HomeListVC.m in Sources */,
+				378DF0852246D1750033EDBE /* HomeListCell.m in Sources */,
 				378DF0372246C6F00033EDBE /* AppDelegate.m in Sources */,
 				378DF0482246C6F30033EDBE /* main.m in Sources */,
 				378DF0402246C6F00033EDBE /* MovieApp.xcdatamodeld in Sources */,
