@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Tools : NSObject
 
+//MARK: - Dates
++ (NSString*)getYearWithDate:(NSDate*)aDate;
 //MARK: - Network
 + (BOOL)isConnectedToInternet;
 

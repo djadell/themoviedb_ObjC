@@ -11,6 +11,14 @@
 
 @implementation Tools
 
+//MARK: - Dates
++ (NSString*)getYearWithDate:(NSDate*)aDate
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy"];
+    return [formatter stringFromDate:aDate];
+}
+
 //MARK: - Network
 + (BOOL)isConnectedToInternet
 {

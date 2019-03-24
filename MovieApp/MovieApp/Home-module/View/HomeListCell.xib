@@ -63,6 +63,12 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="iImagenPicture" destination="Y3J-O1-Dqp" id="xtn-Ee-3cB"/>
+                <outlet property="iLabelDate" destination="UOA-eY-cVK" id="qSk-wR-v3z"/>
+                <outlet property="iLabelTitle" destination="FAC-jV-eAI" id="Wvi-e9-0os"/>
+                <outlet property="iTextViewOverview" destination="6qA-2y-nsA" id="AhO-3q-R45"/>
+            </connections>
             <point key="canvasLocation" x="39.200000000000003" y="65.667166416791616"/>
         </tableViewCell>
     </objects>

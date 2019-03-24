@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		370635CC2247C2AB0018C947 /* HomeListInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 370635CB2247C2AB0018C947 /* HomeListInteractor.m */; };
+		370635CF2247C2D10018C947 /* HomeListPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 370635CE2247C2D10018C947 /* HomeListPresenter.m */; };
+		370635D62247C3200018C947 /* DBMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 370635D52247C3200018C947 /* DBMovie.m */; };
+		370635DB2247C90B0018C947 /* JTTableLoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 370635D92247C90B0018C947 /* JTTableLoadingCell.xib */; };
+		370635DC2247C90B0018C947 /* JTTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 370635DA2247C90B0018C947 /* JTTableViewController.m */; };
 		378DF0372246C6F00033EDBE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 378DF0362246C6F00033EDBE /* AppDelegate.m */; };
 		378DF03A2246C6F00033EDBE /* HomeListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 378DF0392246C6F00033EDBE /* HomeListVC.m */; };
 		378DF0402246C6F00033EDBE /* MovieApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 378DF03E2246C6F00033EDBE /* MovieApp.xcdatamodeld */; };
@@ -40,6 +45,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		370635CA2247C2AB0018C947 /* HomeListInteractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeListInteractor.h; sourceTree = "<group>"; };
+		370635CB2247C2AB0018C947 /* HomeListInteractor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeListInteractor.m; sourceTree = "<group>"; };
+		370635CD2247C2D10018C947 /* HomeListPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeListPresenter.h; sourceTree = "<group>"; };
+		370635CE2247C2D10018C947 /* HomeListPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeListPresenter.m; sourceTree = "<group>"; };
+		370635D42247C3200018C947 /* DBMovie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBMovie.h; sourceTree = "<group>"; };
+		370635D52247C3200018C947 /* DBMovie.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBMovie.m; sourceTree = "<group>"; };
+		370635D82247C90B0018C947 /* JTTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTTableViewController.h; sourceTree = "<group>"; };
+		370635D92247C90B0018C947 /* JTTableLoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JTTableLoadingCell.xib; sourceTree = "<group>"; };
+		370635DA2247C90B0018C947 /* JTTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTTableViewController.m; sourceTree = "<group>"; };
 		378DF0322246C6F00033EDBE /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		378DF0352246C6F00033EDBE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		378DF0362246C6F00033EDBE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -94,6 +108,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		370635D72247C90B0018C947 /* JTTableVC */ = {
+			isa = PBXGroup;
+			children = (
+				370635D82247C90B0018C947 /* JTTableViewController.h */,
+				370635D92247C90B0018C947 /* JTTableLoadingCell.xib */,
+				370635DA2247C90B0018C947 /* JTTableViewController.m */,
+			);
+			path = JTTableVC;
+			sourceTree = "<group>";
+		};
 		378DF0292246C6F00033EDBE = {
 			isa = PBXGroup;
 			children = (
@@ -168,7 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				378DF0762246CC690033EDBE /* Router */,
-				378DF0772246CC690033EDBE /* DataManager */,
+				378DF0772246CC690033EDBE /* Entity */,
 				378DF0782246CC690033EDBE /* Presenter */,
 				378DF0792246CC690033EDBE /* View */,
 				378DF07A2246CC690033EDBE /* Interactor */,
@@ -183,16 +207,20 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
-		378DF0772246CC690033EDBE /* DataManager */ = {
+		378DF0772246CC690033EDBE /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				370635D42247C3200018C947 /* DBMovie.h */,
+				370635D52247C3200018C947 /* DBMovie.m */,
 			);
-			path = DataManager;
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		378DF0782246CC690033EDBE /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				370635CD2247C2D10018C947 /* HomeListPresenter.h */,
+				370635CE2247C2D10018C947 /* HomeListPresenter.m */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -212,6 +240,8 @@
 		378DF07A2246CC690033EDBE /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				370635CA2247C2AB0018C947 /* HomeListInteractor.h */,
+				370635CB2247C2AB0018C947 /* HomeListInteractor.m */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -219,6 +249,7 @@
 		378DF07B2246CCE50033EDBE /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				370635D72247C90B0018C947 /* JTTableVC */,
 				378DF0902246E0740033EDBE /* Network */,
 				378DF0932246E0740033EDBE /* Tools.h */,
 				378DF0942246E0740033EDBE /* Tools.m */,
@@ -352,6 +383,7 @@
 			files = (
 				378DF0702246CAB70033EDBE /* Main.storyboard in Resources */,
 				378DF0742246CB140033EDBE /* Assets.xcassets in Resources */,
+				370635DB2247C90B0018C947 /* JTTableLoadingCell.xib in Resources */,
 				378DF0862246D1750033EDBE /* HomeListCell.xib in Resources */,
 				378DF06F2246CAB70033EDBE /* LaunchScreen.storyboard in Resources */,
 			);
@@ -380,11 +412,15 @@
 			files = (
 				378DF0962246E0740033EDBE /* Tools.m in Sources */,
 				378DF03A2246C6F00033EDBE /* HomeListVC.m in Sources */,
+				370635D62247C3200018C947 /* DBMovie.m in Sources */,
+				370635CF2247C2D10018C947 /* HomeListPresenter.m in Sources */,
 				378DF0852246D1750033EDBE /* HomeListCell.m in Sources */,
 				378DF0372246C6F00033EDBE /* AppDelegate.m in Sources */,
 				378DF0482246C6F30033EDBE /* main.m in Sources */,
+				370635DC2247C90B0018C947 /* JTTableViewController.m in Sources */,
 				378DF0952246E0740033EDBE /* Reachability.m in Sources */,
 				378DF0402246C6F00033EDBE /* MovieApp.xcdatamodeld in Sources */,
+				370635CC2247C2AB0018C947 /* HomeListInteractor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

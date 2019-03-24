@@ -107,8 +107,9 @@
     if(indexPath.row == [self.results count] && nextPageLoaderCellHeight > 0){
         return nextPageLoaderCellHeight;
     }
-
-    return UITableViewAutomaticDimension;
+    
+    return [self.iDelegate tableView:tableView heightForRowAtIndexPath:indexPath];
+//    return UITableViewAutomaticDimension;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
