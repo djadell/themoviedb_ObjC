@@ -10,12 +10,13 @@
 #import "HomeListInteractor.h"
 
 
-@interface HomeListPresenter ()
+@interface HomeListPresenter () <HomeListInteractorDelegate>
 {
     int iPageNumber;
 }
 
-@property (strong,nonatomic) HomeListVC* iHomeView;
+@property (strong,nonatomic) HomeListVC* iView;
+@property (strong,nonatomic) HomeListInteractor *iInteractor;
 
 @end
 
@@ -26,7 +27,9 @@
     self = [super init];
     
     if (self) {
-        _iHomeView = iHomeListVC;
+        _iView = iHomeListVC;
+        _iInteractor = [HomeListInteractor new];
+        [_iInteractor setIDelegate:self];
     }
     
     return self;
@@ -36,25 +39,34 @@
 {
     NSArray *maTemp = [[NSArray alloc]initWithObjects:@"1",@"2",@"3",@"4", nil];
     iPageNumber = 1;
-    // Must be implemented
     
-    [self startFetchingNextResults];
+    if (aSearchBarText.length) {
+        // Must be implemented
+    } else {
+        [_iInteractor getPopularMoviesWithPage:iPageNumber];
+    }
+//    [self startFetchingNextResults];
     
     //return maTemp;
 }
 
 - (void)startFetchingNextResults
 {
-    NSArray *maTemp = [[NSArray alloc]initWithObjects:@"1",@"2",@"3",@"4", nil];
     // Must be implemented
+    //iPageNumber++;
     
+    
+}
+
+//MARK: - HomeListInteractorDelegate
+- (void) dataFetchingResults:(NSArray*)items totalPages:(int)totalPages
+{
     if (self.iDelegate &&
         [self.iDelegate conformsToProtocol:@protocol(HomeListPresenterDelegate)]&&
         [self.iDelegate respondsToSelector:@selector(startFetchingResults:totalPages:)])
     {
-        [self.iDelegate startFetchingResults:maTemp totalPages:iPageNumber];
+        [self.iDelegate startFetchingResults:items totalPages:totalPages];
     }
 }
-
 
 @end

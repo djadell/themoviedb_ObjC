@@ -66,7 +66,13 @@
     // Must be implemented
 //    NSString* searchBarText = _iSearchBar.text;
     
-    [_iJTTableVC didFetchResults:items haveMoreData:([items count] >= totalPages)];
+    if (![NSThread isMainThread]) {
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            [_iJTTableVC didFetchResults:items haveMoreData:([items count] >= totalPages)];
+        });
+    } else {
+        [_iJTTableVC didFetchResults:items haveMoreData:([items count] >= totalPages)];
+    }
 }
 
 - (void) nextFetchingResults:(NSArray*)items totalPages:(int)totalPages

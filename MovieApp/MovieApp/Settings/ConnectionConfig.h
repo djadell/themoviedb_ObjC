@@ -20,7 +20,8 @@
  */
 /********************************************/
 
-#define K_NET_API_SERVER_NAME @"api.themoviedb.org"
-#define K_NET_API_KEY @"93aea0c77bc168d8bbce3918cefefa45"
+#define K_NET_API_SERVER_PROTOCOL   @"https"
+#define K_NET_API_SERVER_NAME       @"api.themoviedb.org"
+#define K_NET_API_KEY               @"93aea0c77bc168d8bbce3918cefefa45"
 
 #endif /* ConnectionConfig_h */

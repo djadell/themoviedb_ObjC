@@ -9,8 +9,20 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
+@protocol HomeListInteractorDelegate <NSObject>
+
+@required
+- (void) dataFetchingResults:(NSArray*)items totalPages:(int)totalPages;
+
+@optional
+
+@end
 
 @interface HomeListInteractor : NSObject
+
+@property (nonatomic, assign) id<HomeListInteractorDelegate> iDelegate;
+
+- (void)getPopularMoviesWithPage:(int)aPage;
 
 @end
 

@@ -11,6 +11,12 @@
 
 @implementation Tools
 
+//MARK: - iOS 
++ (NSString*)getIpadLanguage
+{
+    return [[NSLocale preferredLanguages] firstObject];
+}
+
 //MARK: - Dates
 + (NSString*)getYearWithDate:(NSDate*)aDate
 {
