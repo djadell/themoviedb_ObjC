@@ -37,7 +37,6 @@
 
 -(void)resetResults:(NSString*)aSearchBarText
 {
-    NSArray *maTemp = [[NSArray alloc]initWithObjects:@"1",@"2",@"3",@"4", nil];
     iPageNumber = 1;
     
     if (aSearchBarText.length) {
@@ -45,17 +44,17 @@
     } else {
         [_iInteractor getPopularMoviesWithPage:iPageNumber];
     }
-//    [self startFetchingNextResults];
-    
-    //return maTemp;
 }
 
-- (void)startFetchingNextResults
+- (void)startFetchingNextResults:(NSString*)aSearchBarText
 {
-    // Must be implemented
-    //iPageNumber++;
-    
-    
+    NSLog(@"[DEBUG] startFetchingNextResults iPageNumber++");
+    iPageNumber++;
+    if (aSearchBarText.length) {
+        // Must be implemented
+    } else {
+        [_iInteractor getPopularMoviesWithPage:iPageNumber];
+    }
 }
 
 //MARK: - HomeListInteractorDelegate
