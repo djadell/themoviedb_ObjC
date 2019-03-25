@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol HomeListInteractorDelegate <NSObject>
 
 @required
-- (void)dataFetchingResults:(NSArray*)items totalPages:(float)totalPages;
+- (void)dataFetchingResults:(NSArray*)items totalPages:(float)totalPages isNext:(BOOL)isNext;
 
 @optional
 
@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) id<HomeListInteractorDelegate> iDelegate;
 
-- (void)getPopularMoviesWithPage:(int)aPage;
+- (void)getPopularMoviesWithPage:(int)aPage isNext:(BOOL)isNext;
 
 @end
 

@@ -14,6 +14,7 @@
 {
     FileManager *iFileManager;
 }
+
 @property (weak, nonatomic) IBOutlet UIImageView *iImagenPicture;
 @property (weak, nonatomic) IBOutlet UILabel *iLabelTitle;
 @property (weak, nonatomic) IBOutlet UILabel *iLabelDate;
@@ -29,8 +30,11 @@
     [_iLabelTitle setText:_iMovie.iTitle.length ? _iMovie.iTitle : [NSString stringWithFormat:@"%f",(float)[_iMovie.iId floatValue]]];
     [_iLabelDate setText:[Tools getYearWithDate:_iMovie.iReleaseDate].length ? [Tools getYearWithDate:_iMovie.iReleaseDate]:@"--"];
     [_iTextViewOverview setText:_iMovie.iOverview.length ? _iMovie.iOverview:@""];
-    
-    [self getImagePath:_iMovie.iImageURL];
+    if (!_iMovie.iDownloadedImage) {
+        [self getImagePath:_iMovie.iImageURL];
+    } else {
+        [self setPosterImage];
+    }
 }
 
 /////TODO: fast Testing, pending to move correct location
@@ -44,15 +48,7 @@
                                                        downloadTaskWithURL:url completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
                                                            if (location != nil && error == nil)
                                                            {
-                                                               self.iMovie.iImagePathURL = location;
-                                                               if (![NSThread isMainThread]) {
-                                                                   dispatch_sync(dispatch_get_main_queue(), ^{
-                                                                       [self setImagePath:location];
-                                                                   });
-                                                               } else {
-                                                                   [self setImagePath:location];
-                                                               }
-                                                               
+                                                               [self setImagePath:location];
                                                            }
                                                            else // There was an error
                                                            {
@@ -65,12 +61,20 @@
 
 - (void)setImagePath:(NSURL*)aLocation
 {
-    UIImage *downloadedImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:_iMovie.iImagePathURL]];
-    if (downloadedImage) {
-        [self.iImagenPicture setImage:downloadedImage];
-    }
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        self.iMovie.iImagePathURL = aLocation;
+        self.iMovie.iDownloadedImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:aLocation]];
+        [self setPosterImage];
+    });
 }
 ////////
+
+- (void)setPosterImage
+{
+//    if (_iDownloadedImage) {
+        [self.iImagenPicture setImage:self.iMovie.iDownloadedImage];
+//    }
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];

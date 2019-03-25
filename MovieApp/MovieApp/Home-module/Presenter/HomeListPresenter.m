@@ -12,7 +12,7 @@
 
 @interface HomeListPresenter () <HomeListInteractorDelegate>
 {
-    int iPageNumber;
+    
 }
 
 @property (strong,nonatomic) HomeListVC* iView;
@@ -37,34 +37,40 @@
 
 -(void)resetResults:(NSString*)aSearchBarText
 {
-    iPageNumber = 1;
+    _iPageNumber = 1;
     
     if (aSearchBarText.length) {
         // Must be implemented
     } else {
-        [_iInteractor getPopularMoviesWithPage:iPageNumber];
+        [_iInteractor getPopularMoviesWithPage:_iPageNumber isNext:NO];
     }
 }
 
 - (void)startFetchingNextResults:(NSString*)aSearchBarText
 {
-    NSLog(@"[DEBUG] startFetchingNextResults iPageNumber++");
-    iPageNumber++;
+    NSLog(@"[DEBUG] startFetchingNextResults iPageNumber++ isLoading = %@",_isLoadingData?@"Y":@"N");
+    _iPageNumber++;
     if (aSearchBarText.length) {
         // Must be implemented
     } else {
-        [_iInteractor getPopularMoviesWithPage:iPageNumber];
+        [_iInteractor getPopularMoviesWithPage:_iPageNumber isNext:YES];
     }
 }
 
 //MARK: - HomeListInteractorDelegate
-- (void) dataFetchingResults:(NSArray*)items totalPages:(float)totalPages
+- (void) dataFetchingResults:(NSArray*)items totalPages:(float)totalPages isNext:(BOOL)isNext
 {
+    
     if (self.iDelegate &&
         [self.iDelegate conformsToProtocol:@protocol(HomeListPresenterDelegate)]&&
-        [self.iDelegate respondsToSelector:@selector(startFetchingResults:totalPages:)])
+        ([self.iDelegate respondsToSelector:@selector(startFetchingResults:totalPages:)]||
+         [self.iDelegate respondsToSelector:@selector(nextFetchingResults:totalPages:)]))
     {
-        [self.iDelegate startFetchingResults:items totalPages:totalPages];
+        if (isNext) {
+            [self.iDelegate nextFetchingResults:items totalPages:totalPages];
+        } else {
+           [self.iDelegate startFetchingResults:items totalPages:totalPages];
+        }
     }
 }
 

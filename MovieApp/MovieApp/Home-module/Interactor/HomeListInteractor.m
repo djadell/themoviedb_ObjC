@@ -13,7 +13,7 @@
 @implementation HomeListInteractor
 
 
-- (void)getPopularMoviesWithPage:(int)aPage
+- (void)getPopularMoviesWithPage:(int)aPage isNext:(BOOL)isNext
 {
     if ([Tools isConnectedToInternet]) {
         NSString *sIpadLanguage = [Tools getIpadLanguage];
@@ -33,7 +33,7 @@
                                                       NSError *errorJSON;
                                                       NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&errorJSON];
                                                       
-                                                      [self dataProcessingWithDictionary:dictionary];
+                                                      [self dataProcessingWithDictionary:dictionary isNext:isNext];
                                                   }
                                                   else // There was an error
                                                   {
@@ -44,7 +44,7 @@
     }
 }
 
-- (void)dataProcessingWithDictionary:(NSDictionary*)dicJSON
+- (void)dataProcessingWithDictionary:(NSDictionary*)dicJSON isNext:(BOOL)isNext
 {
     NSMutableArray *outputItems = [NSMutableArray new];
     
@@ -63,9 +63,11 @@
     
     if (self.iDelegate &&
         [self.iDelegate conformsToProtocol:@protocol(HomeListInteractorDelegate)]&&
-        [self.iDelegate respondsToSelector:@selector(dataFetchingResults:totalPages:)])
+        [self.iDelegate respondsToSelector:@selector(dataFetchingResults:totalPages:isNext:)])
     {
-        [self.iDelegate dataFetchingResults:outputItems totalPages:[nTotalPages floatValue]];
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            [self.iDelegate dataFetchingResults:outputItems totalPages:[nTotalPages floatValue] isNext:isNext];
+        });
     }
 }
 

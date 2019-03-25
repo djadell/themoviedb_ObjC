@@ -6,6 +6,7 @@
 //  Copyright © 2019 djadell. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -18,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) NSString*  iImageURL;
 @property (nonatomic,strong) NSURL*     iImagePathURL;
 @property (nonatomic,strong) NSString*  iOverview;
+@property (nonatomic,strong) UIImage*   iDownloadedImage;
 
 - (id) initWithID:(NSString*)aID
             Title:(NSString*)aTitle
