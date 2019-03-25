@@ -50,14 +50,13 @@
 //MARK: - JTTableViewControllerDelegate
 - (void)startFetchingResults
 {
-    // Must be implemented
-    NSLog(@"[DEBUG] startFetchingNextResults");
+    //Disabled
 }
 
 - (void)startFetchingNextResults
 {
-    // Must be implemented
     NSLog(@"[DEBUG] startFetchingNextResults");
+//    [_iPresenter startFetchingNextResults:_iSearchBar.text];
 }
 
 //MARK: - HomeListPresenterDelegate
@@ -74,7 +73,15 @@
 
 - (void) nextFetchingResults:(NSArray*)items totalPages:(float)totalPages
 {
-    // Must be implemented
+    if (![NSThread isMainThread]) {
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            [self.iJTTableVC didFetchResults:items haveMoreData:([items count] < totalPages)];
+            [self.iJTTableVC.tableView reloadData];
+        });
+    } else {
+        [self.iJTTableVC didFetchResults:items haveMoreData:([items count] < totalPages)];
+        [self.iJTTableVC.tableView reloadData];
+    }
 }
 
 

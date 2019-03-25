@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (id)initWithHomeListVC:(HomeListVC*)iHomeListVC;
 - (void)resetResults:(NSString*)aSearchBarText;
-- (void)startFetchingNextResults;
+- (void)startFetchingNextResults:(NSString*)aSearchBarText;
 
 @end
 
