@@ -11,10 +11,10 @@
 #import "HomeListPresenter.h"
 #import "JTTableViewController.h"
 
-#define K_
+#define K_MAX_ROWS_PAGE 20
 #define KCELL_HEIGHT 195
 
-@interface HomeListVC () <UITableViewDelegate,UITableViewDataSource,JTTableViewControllerDelegate,HomeListPresenterDelegate>
+@interface HomeListVC () <UITableViewDelegate,UITableViewDataSource,JTTableViewControllerDelegate,HomeListPresenterDelegate,UISearchBarDelegate>
 
 @property (strong, nonatomic) JTTableViewController *iJTTableVC;
 @property (weak, nonatomic) IBOutlet UITableView *iTable;
@@ -44,8 +44,16 @@
     [_iPresenter resetResults:_iSearchBar.text];
 }
 
+//MARK: - UISearchBarDelegate
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    
+}
 
-
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    //Disabled
+}
 
 //MARK: - JTTableViewControllerDelegate
 - (void)startFetchingResults
@@ -62,12 +70,12 @@
 //MARK: - HomeListPresenterDelegate
 - (void) startFetchingResults:(NSArray*)items totalPages:(float)totalPages
 {
-    [self.iJTTableVC didFetchResults:items haveMoreData:([items count] >= 20)];
+    [self.iJTTableVC didFetchResults:items haveMoreData:([items count] >= K_MAX_ROWS_PAGE)];
 }
 
 - (void) nextFetchingResults:(NSArray*)items totalPages:(float)totalPages
 {
-    [self.iJTTableVC didFetchNextResults:items haveMoreData:([items count] >= 20)];
+    [self.iJTTableVC didFetchNextResults:items haveMoreData:([items count] >= K_MAX_ROWS_PAGE)];
     [self.iJTTableVC.tableView reloadData];
 }
 
