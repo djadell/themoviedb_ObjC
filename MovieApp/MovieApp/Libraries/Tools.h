@@ -13,6 +13,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Tools : NSObject
 
+//MARK: - iOS
++ (NSString*)getIpadLanguage;
+//MARK: - Dates
++ (NSString*)getYearWithDate:(NSDate*)aDate;
++ (NSDate*)StringToDate:(NSString*)sDateString DateFormat:(NSString*)sDateFormat;
 //MARK: - Network
 + (BOOL)isConnectedToInternet;
 

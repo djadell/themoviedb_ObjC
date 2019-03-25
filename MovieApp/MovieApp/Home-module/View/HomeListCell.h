@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "ViewsConfig.h"
+#import "DBMovie.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeListCell : UITableViewCell
+
+@property (strong,nonatomic) DBMovie *iMovie;
 
 @end
 
