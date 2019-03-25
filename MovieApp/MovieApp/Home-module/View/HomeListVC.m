@@ -114,6 +114,7 @@
 //MARK: - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self.view endEditing:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:K_TABLE_SELECTION_ANIMATION];
 }
 
