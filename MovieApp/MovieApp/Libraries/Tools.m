@@ -25,6 +25,14 @@
     return [formatter stringFromDate:aDate];
 }
 
++ (NSDate*)StringToDate:(NSString*)sDateString DateFormat:(NSString*)sDateFormat
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+    [formatter setDateFormat:sDateFormat];
+    return [formatter dateFromString:sDateString];
+}
+
 //MARK: - Network
 + (BOOL)isConnectedToInternet
 {
@@ -32,16 +40,16 @@
     NetworkStatus nsHost = [rHost currentReachabilityStatus];
     if (nsHost == ReachableViaWiFi)
     {
-        NSLog(@"******************************************");
-        NSLog(@"Device is connected to the internet [WiFi]");
-        NSLog(@"******************************************");
+//        NSLog(@"******************************************");
+//        NSLog(@"Device is connected to the internet [WiFi]");
+//        NSLog(@"******************************************");
         return YES;
     }
     else if (nsHost == ReachableViaWWAN)
     {
-        NSLog(@"************************************************");
-        NSLog(@"Device is connected to the internet [WWAN/3G/4G]");
-        NSLog(@"************************************************");
+//        NSLog(@"************************************************");
+//        NSLog(@"Device is connected to the internet [WWAN/3G/4G]");
+//        NSLog(@"************************************************");
         return YES;
     }
     else //NotReachable

@@ -59,7 +59,7 @@
 }
 
 //MARK: - HomeListInteractorDelegate
-- (void) dataFetchingResults:(NSArray*)items totalPages:(int)totalPages
+- (void) dataFetchingResults:(NSArray*)items totalPages:(float)totalPages
 {
     if (self.iDelegate &&
         [self.iDelegate conformsToProtocol:@protocol(HomeListPresenterDelegate)]&&

@@ -61,21 +61,18 @@
 }
 
 //MARK: - HomeListPresenterDelegate
-- (void) startFetchingResults:(NSArray*)items totalPages:(int)totalPages
+- (void) startFetchingResults:(NSArray*)items totalPages:(float)totalPages
 {
-    // Must be implemented
-//    NSString* searchBarText = _iSearchBar.text;
-    
     if (![NSThread isMainThread]) {
         dispatch_sync(dispatch_get_main_queue(), ^{
-            [_iJTTableVC didFetchResults:items haveMoreData:([items count] >= totalPages)];
+            [self.iJTTableVC didFetchResults:items haveMoreData:([items count] < totalPages)];
         });
     } else {
-        [_iJTTableVC didFetchResults:items haveMoreData:([items count] >= totalPages)];
+        [self.iJTTableVC didFetchResults:items haveMoreData:([items count] < totalPages)];
     }
 }
 
-- (void) nextFetchingResults:(NSArray*)items totalPages:(int)totalPages
+- (void) nextFetchingResults:(NSArray*)items totalPages:(float)totalPages
 {
     // Must be implemented
 }
@@ -103,7 +100,7 @@
         cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([HomeListCell class])];
     }
     // Must be implemented
-//    cell.iMovie = _iJTTableVC.results[indexPath.row];
+    cell.iMovie = _iJTTableVC.results[indexPath.row];
     
     return cell;
 }

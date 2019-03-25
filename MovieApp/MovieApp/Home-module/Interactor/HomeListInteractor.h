@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol HomeListInteractorDelegate <NSObject>
 
 @required
-- (void) dataFetchingResults:(NSArray*)items totalPages:(int)totalPages;
+- (void)dataFetchingResults:(NSArray*)items totalPages:(float)totalPages;
 
 @optional
 

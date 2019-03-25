@@ -13,8 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol HomeListPresenterDelegate <NSObject>
 
 @required
-- (void) startFetchingResults:(NSArray*)items totalPages:(int)totalPages;
-- (void) nextFetchingResults:(NSArray*)items totalPages:(int)totalPages;
+- (void) startFetchingResults:(NSArray*)items totalPages:(float)totalPages;
+- (void) nextFetchingResults:(NSArray*)items totalPages:(float)totalPages;
 @optional
 
 @end

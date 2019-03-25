@@ -12,12 +12,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DBMovie : NSObject
 
-@property (nonatomic,strong) NSString* iId;
-@property (nonatomic,strong) NSString* iTitle;
-@property (nonatomic,strong) NSDate*   iDate;
-@property (nonatomic,strong) NSString* iImage;
-@property (nonatomic,strong) NSString* iOverview;
+@property (nonatomic,strong) NSNumber*  iId;
+@property (nonatomic,strong) NSString*  iTitle;
+@property (nonatomic,strong) NSDate*    iReleaseDate;
+@property (nonatomic,strong) NSString*  iImageURL;
+@property (nonatomic,strong) NSURL*     iImagePathURL;
+@property (nonatomic,strong) NSString*  iOverview;
 
+- (id) initWithID:(NSString*)aID
+            Title:(NSString*)aTitle
+         ImageURL:(NSString*)aImageURL
+      ReleaseDate:(NSDate*)aReleaseDate
+         Overview:(NSString*)aOverview;
 
 @end
 

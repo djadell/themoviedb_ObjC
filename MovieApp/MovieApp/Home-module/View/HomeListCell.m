@@ -7,10 +7,13 @@
 //
 
 #import "HomeListCell.h"
+#import "FileManager.h"
 #import "Tools.h"
 
-@interface HomeListCell ()
-
+@interface HomeListCell () <FileManagerDelegate>
+{
+    FileManager *iFileManager;
+}
 @property (weak, nonatomic) IBOutlet UIImageView *iImagenPicture;
 @property (weak, nonatomic) IBOutlet UILabel *iLabelTitle;
 @property (weak, nonatomic) IBOutlet UILabel *iLabelDate;
@@ -20,12 +23,54 @@
 
 @implementation HomeListCell
 
-- (void)setIMovie:(DBMovie *)iMovie
+- (void)setIMovie:(DBMovie *)aMovie
 {
-    [_iLabelTitle setText:iMovie.iTitle.length ? iMovie.iTitle : iMovie.iId];
-    [_iLabelDate setText:[Tools getYearWithDate:iMovie.iDate].length ? [Tools getYearWithDate:iMovie.iDate]:@"--"];
-    [_iTextViewOverview setText:iMovie.iOverview.length ? iMovie.iOverview:@""];
+    _iMovie = aMovie;
+    [_iLabelTitle setText:_iMovie.iTitle.length ? _iMovie.iTitle : [NSString stringWithFormat:@"%f",(float)[_iMovie.iId floatValue]]];
+    [_iLabelDate setText:[Tools getYearWithDate:_iMovie.iReleaseDate].length ? [Tools getYearWithDate:_iMovie.iReleaseDate]:@"--"];
+    [_iTextViewOverview setText:_iMovie.iOverview.length ? _iMovie.iOverview:@""];
+    
+    [self getImagePath:_iMovie.iImageURL];
 }
+
+/////TODO: fast Testing, pending to move correct location
+- (void)getImagePath:(NSString*)aImagenURL
+{
+    if ([Tools isConnectedToInternet]) {
+        NSString *sMediaURL = [NSString stringWithFormat:@"%@%@",K_NET_MEDIA_URL,aImagenURL];
+        NSURL *url = [NSURL URLWithString:sMediaURL];
+        
+        NSURLSessionDownloadTask *downloadPhotoTask = [[NSURLSession sharedSession]
+                                                       downloadTaskWithURL:url completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
+                                                           if (location != nil && error == nil)
+                                                           {
+                                                               self.iMovie.iImagePathURL = location;
+                                                               if (![NSThread isMainThread]) {
+                                                                   dispatch_sync(dispatch_get_main_queue(), ^{
+                                                                       [self setImagePath:location];
+                                                                   });
+                                                               } else {
+                                                                   [self setImagePath:location];
+                                                               }
+                                                               
+                                                           }
+                                                           else // There was an error
+                                                           {
+                                                               NSLog(@"[FileManager] Error:\n %ld %@",(long)error.code, error.description);
+                                                           }
+                                                       }];
+        [downloadPhotoTask resume];
+    }
+}
+
+- (void)setImagePath:(NSURL*)aLocation
+{
+    UIImage *downloadedImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:_iMovie.iImagePathURL]];
+    if (downloadedImage) {
+        [self.iImagenPicture setImage:downloadedImage];
+    }
+}
+////////
 
 - (void)awakeFromNib {
     [super awakeFromNib];
