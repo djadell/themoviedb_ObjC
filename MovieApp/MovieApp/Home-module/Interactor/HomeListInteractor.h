@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) id<HomeListInteractorDelegate> iDelegate;
 
+- (void)getMoviesSearchedWithText:(NSString*)aSearchText WithPage:(int)aPage isNext:(BOOL)isNext;
 - (void)getPopularMoviesWithPage:(int)aPage isNext:(BOOL)isNext;
 
 @end

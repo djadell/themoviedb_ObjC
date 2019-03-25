@@ -41,16 +41,22 @@
     [_iTable setDelegate:_iJTTableVC];
     [_iJTTableVC setIDelegate:self];
     
-    [_iPresenter resetResults:_iSearchBar.text];
+    [_iPresenter resetResults:@""];
 }
 
 //MARK: - UISearchBarDelegate
--(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    
+    [_iPresenter resetResults:searchText];
 }
 
--(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+- (void) onSearchBarTextFieldShouldClear
+{
+    [_iSearchBar setText:@""];
+    [_iPresenter resetResults:@""];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     //Disabled
 }

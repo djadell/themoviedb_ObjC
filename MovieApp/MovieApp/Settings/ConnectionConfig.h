@@ -23,6 +23,7 @@
 #define K_NET_API_SERVER_PROTOCOL   @"https"
 #define K_NET_API_SERVER_NAME       @"api.themoviedb.org"
 #define K_NET_API_KEY               @"93aea0c77bc168d8bbce3918cefefa45"
+#define K_NET_API_TIMEOUT_INTERVAL  10.0
 
 #define K_NET_MEDIA_URL             @"https://image.tmdb.org/t/p/w500"
 

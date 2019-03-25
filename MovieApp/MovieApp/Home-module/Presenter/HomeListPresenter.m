@@ -31,16 +31,14 @@
         _iInteractor = [HomeListInteractor new];
         [_iInteractor setIDelegate:self];
     }
-    
     return self;
 }
 
 -(void)resetResults:(NSString*)aSearchBarText
 {
     _iPageNumber = 1;
-    
     if (aSearchBarText.length) {
-        // Must be implemented
+        [_iInteractor getMoviesSearchedWithText:aSearchBarText WithPage:_iPageNumber isNext:NO];
     } else {
         [_iInteractor getPopularMoviesWithPage:_iPageNumber isNext:NO];
     }
@@ -48,10 +46,9 @@
 
 - (void)startFetchingNextResults:(NSString*)aSearchBarText
 {
-    NSLog(@"[DEBUG] startFetchingNextResults iPageNumber++ isLoading = %@",_isLoadingData?@"Y":@"N");
     _iPageNumber++;
     if (aSearchBarText.length) {
-        // Must be implemented
+        [_iInteractor getMoviesSearchedWithText:aSearchBarText WithPage:_iPageNumber isNext:YES];
     } else {
         [_iInteractor getPopularMoviesWithPage:_iPageNumber isNext:YES];
     }
