@@ -34,8 +34,10 @@
     
     if (!_iMovie.iDownloadedImage) {
         [_iProgressIndicator setHidden:NO];
+        [_iProgressIndicator startAnimating];
         [self getImagePath:_iMovie.iImageURL];
     } else {
+        [_iProgressIndicator stopAnimating];
         [_iProgressIndicator setHidden:YES];
         [self setPosterImage];
     }
@@ -77,6 +79,7 @@
 {
     if (self.iMovie.iDownloadedImage) {
         [self.iImagenPicture setImage:self.iMovie.iDownloadedImage];
+        [_iProgressIndicator stopAnimating];
         [_iProgressIndicator setHidden:YES];
     }
 }
