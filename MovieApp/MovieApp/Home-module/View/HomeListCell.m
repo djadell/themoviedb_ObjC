@@ -15,6 +15,7 @@
     FileManager *iFileManager;
 }
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *iProgressIndicator;
 @property (weak, nonatomic) IBOutlet UIImageView *iImagenPicture;
 @property (weak, nonatomic) IBOutlet UILabel *iLabelTitle;
 @property (weak, nonatomic) IBOutlet UILabel *iLabelDate;
@@ -30,9 +31,12 @@
     [_iLabelTitle setText:_iMovie.iTitle.length ? _iMovie.iTitle : [NSString stringWithFormat:@"%f",(float)[_iMovie.iId floatValue]]];
     [_iLabelDate setText:[Tools getYearWithDate:_iMovie.iReleaseDate].length ? [Tools getYearWithDate:_iMovie.iReleaseDate]:@"--"];
     [_iTextViewOverview setText:_iMovie.iOverview.length ? _iMovie.iOverview:@""];
+    
     if (!_iMovie.iDownloadedImage) {
+        [_iProgressIndicator setHidden:NO];
         [self getImagePath:_iMovie.iImageURL];
     } else {
+        [_iProgressIndicator setHidden:YES];
         [self setPosterImage];
     }
 }
@@ -71,9 +75,10 @@
 
 - (void)setPosterImage
 {
-//    if (_iDownloadedImage) {
+    if (self.iMovie.iDownloadedImage) {
         [self.iImagenPicture setImage:self.iMovie.iDownloadedImage];
-//    }
+        [_iProgressIndicator setHidden:YES];
+    }
 }
 
 - (void)awakeFromNib {

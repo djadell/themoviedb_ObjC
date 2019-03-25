@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="195.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Y3J-O1-Dqp">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Y3J-O1-Dqp">
                         <rect key="frame" x="8" y="8" width="118" height="178"/>
                         <color key="backgroundColor" white="0.94999999999999996" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -44,9 +44,13 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="HSJ-br-lGb">
+                        <rect key="frame" x="57" y="87" width="20" height="20"/>
+                    </activityIndicatorView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="6qA-2y-nsA" secondAttribute="trailing" constant="9" id="0Dy-Zh-5Kc"/>
+                    <constraint firstItem="HSJ-br-lGb" firstAttribute="centerX" secondItem="Y3J-O1-Dqp" secondAttribute="centerX" id="0QZ-dk-bRO"/>
                     <constraint firstAttribute="bottom" secondItem="Y3J-O1-Dqp" secondAttribute="bottom" constant="9.5" id="IfS-1t-gep"/>
                     <constraint firstItem="6qA-2y-nsA" firstAttribute="top" secondItem="UOA-eY-cVK" secondAttribute="bottom" constant="8" id="J8J-xg-Ln7"/>
                     <constraint firstItem="FAC-jV-eAI" firstAttribute="leading" secondItem="Y3J-O1-Dqp" secondAttribute="trailing" constant="8" id="N8G-d6-jXf"/>
@@ -59,6 +63,7 @@
                     <constraint firstItem="UOA-eY-cVK" firstAttribute="width" secondItem="6qA-2y-nsA" secondAttribute="width" id="srw-hL-FMa"/>
                     <constraint firstItem="FAC-jV-eAI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="tRj-8P-67v"/>
                     <constraint firstItem="6qA-2y-nsA" firstAttribute="leading" secondItem="Y3J-O1-Dqp" secondAttribute="trailing" constant="8" id="wiZ-gA-fkG"/>
+                    <constraint firstItem="HSJ-br-lGb" firstAttribute="centerY" secondItem="Y3J-O1-Dqp" secondAttribute="centerY" id="zAo-c2-a60"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
@@ -66,6 +71,7 @@
                 <outlet property="iImagenPicture" destination="Y3J-O1-Dqp" id="xtn-Ee-3cB"/>
                 <outlet property="iLabelDate" destination="UOA-eY-cVK" id="qSk-wR-v3z"/>
                 <outlet property="iLabelTitle" destination="FAC-jV-eAI" id="Wvi-e9-0os"/>
+                <outlet property="iProgressIndicator" destination="HSJ-br-lGb" id="XFa-iP-fbb"/>
                 <outlet property="iTextViewOverview" destination="6qA-2y-nsA" id="AhO-3q-R45"/>
             </connections>
             <point key="canvasLocation" x="39.200000000000003" y="65.667166416791616"/>
