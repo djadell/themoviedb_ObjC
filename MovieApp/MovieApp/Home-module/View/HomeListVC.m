@@ -86,7 +86,6 @@
 }
 
 
-
 //MARK: - UITableViewDataSource
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -107,9 +106,8 @@
         [tableView registerNib:[UINib nibWithNibName:NSStringFromClass([HomeListCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([HomeListCell class])];
         cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([HomeListCell class])];
     }
-    // Must be implemented
-    cell.iMovie = _iJTTableVC.results[indexPath.row];
     
+    cell.iMovie = _iJTTableVC.results[indexPath.row];
     return cell;
 }
 
