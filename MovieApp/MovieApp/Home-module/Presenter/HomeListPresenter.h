@@ -22,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HomeListPresenter : NSObject
 
 @property (nonatomic, assign) id<HomeListPresenterDelegate> iDelegate;
+@property (nonatomic) float iPageNumber;
+@property (nonatomic) BOOL isLoadingData;
 
 - (id)initWithHomeListVC:(HomeListVC*)iHomeListVC;
 - (void)resetResults:(NSString*)aSearchBarText;

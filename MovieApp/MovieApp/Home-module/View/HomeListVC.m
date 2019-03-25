@@ -11,7 +11,7 @@
 #import "HomeListPresenter.h"
 #import "JTTableViewController.h"
 
-
+#define K_
 #define KCELL_HEIGHT 195
 
 @interface HomeListVC () <UITableViewDelegate,UITableViewDataSource,JTTableViewControllerDelegate,HomeListPresenterDelegate>
@@ -56,32 +56,19 @@
 - (void)startFetchingNextResults
 {
     NSLog(@"[DEBUG] startFetchingNextResults");
-//    [_iPresenter startFetchingNextResults:_iSearchBar.text];
+    [_iPresenter startFetchingNextResults:_iSearchBar.text];
 }
 
 //MARK: - HomeListPresenterDelegate
 - (void) startFetchingResults:(NSArray*)items totalPages:(float)totalPages
 {
-    if (![NSThread isMainThread]) {
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            [self.iJTTableVC didFetchResults:items haveMoreData:([items count] < totalPages)];
-        });
-    } else {
-        [self.iJTTableVC didFetchResults:items haveMoreData:([items count] < totalPages)];
-    }
+    [self.iJTTableVC didFetchResults:items haveMoreData:([items count] >= 20)];
 }
 
 - (void) nextFetchingResults:(NSArray*)items totalPages:(float)totalPages
 {
-    if (![NSThread isMainThread]) {
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            [self.iJTTableVC didFetchResults:items haveMoreData:([items count] < totalPages)];
-            [self.iJTTableVC.tableView reloadData];
-        });
-    } else {
-        [self.iJTTableVC didFetchResults:items haveMoreData:([items count] < totalPages)];
-        [self.iJTTableVC.tableView reloadData];
-    }
+    [self.iJTTableVC didFetchNextResults:items haveMoreData:([items count] >= 20)];
+    [self.iJTTableVC.tableView reloadData];
 }
 
 
