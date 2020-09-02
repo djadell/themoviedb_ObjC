@@ -1,11 +1,13 @@
-themoviedb
-Ver: 1.0
+# themoviedb
+### Ver: 1.0.0
 
 Proyecto personal utilizando la arquitectura VIPER y como fuente de los datos API themoviedb
-API URL
+
+## API URL
 
 https://www.themoviedb.org/
-Project status
+
+## Project status
 
 La Searchbar está pendiente de acabar implementación.
 
